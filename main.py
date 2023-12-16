@@ -8,7 +8,6 @@ def ingest_message(event, context):
     print(message)
 
     message_json = json.loads(message)
-    print(message_json,"MESSAAAAAAAGE")
     error_code = verif_msg(message_json)
 
     if error_code == 0:
