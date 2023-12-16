@@ -1,2 +1,1 @@
-base64
-json
+google-cloud-bigquery==2.13.0
