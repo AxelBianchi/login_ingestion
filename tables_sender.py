@@ -22,7 +22,7 @@ def message_to_login_error(message_json_format,reason):
     client = bigquery.Client()
     table_id = "ethereal-casing-404517.raw_dataset.login_errors"
 
-    message_json_format['reason'] = reason
+    message_json_format["reason"] = reason
     # Insert data into BigQuery
     rows_to_insert = [message_json_format]
 
