@@ -15,6 +15,6 @@ def ingest_message(event, context):
 
     else:
         message_reason = get_error_reason(error_code)
-        message_to_login_error(error_code,message_reason)
+        message_to_login_error(message_json,message_reason)
 
 
