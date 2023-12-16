@@ -9,8 +9,6 @@ def message_to_login(message_json_format):
     dataset_id = "ethereal-casing-404517.raw_dataset"
     table_id = "ethereal-casing-404517.raw_dataset.login"
 
-    table_ref = client.get_table(f"{project_id}.{dataset_id}.{table_id}") #Pas necessaire, utilisé pour modifier la table (schema...)
-
     # Insert data into BigQuery
     rows_to_insert = [message_json_format]
 
