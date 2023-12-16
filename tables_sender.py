@@ -24,5 +24,5 @@ def message_to_login(message_json_format):
     if errors == []:
         print("Data inserted successfully")
     else:
-        print("Errors encountered: ", errors)
+        print("Errors encountered:", errors)
 
