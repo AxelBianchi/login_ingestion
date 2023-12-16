@@ -2,9 +2,9 @@ import datetime
 from datetime import datetime
 
 error_codes = {
-    "error_client_id": 1,
-    "error_timestamp": 2,
-    "normal_login": 0
+    'error_client_id': 1,
+    'error_timestamp': 2,
+    'normal_login': 0
 }
 
 def verif_msg(message_json):
