@@ -22,7 +22,7 @@ def message_to_login(message_json_format):
 
     errors = client.insert_rows(table_ref, rows_to_insert)
     if errors == []:
-        print("Data inserted successfully.")
+        print("Data inserted successfully")
     else:
-        print("Errors encountered:", errors)
+        print("Errors encountered: ", errors)
 
