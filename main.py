@@ -13,7 +13,7 @@ def ingest_message(event, context):
     message = base64.b64decode(event['data']) #Récup event sans le reste (event et context)
     print(message)
 
-    message_json = json.loads(event['data'])
+    message_json = json.loads(message)
     error_code = verif_msg(message_json)
 
     if error_code == 0:
