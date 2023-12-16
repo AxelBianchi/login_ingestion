@@ -1,6 +1,11 @@
 import datetime
 from datetime import datetime
 
+error_codes = {
+    "error_client_id": 0,
+    "error_timestamp": 1,
+    "normal_login": 2
+}
 
 def verif_msg(message_json):
 
@@ -9,16 +14,12 @@ def verif_msg(message_json):
 
     #Vérifier l'existence du client_id
     if client_id is None:
-        error_message = 1
-        return error_message
+        return error_codes["error_client_id"]
 
     #Vérifier la cohérence du login_timestamp
     current_time = datetime.utcnow().timestamp()
-    max_acceptable_timestamp = current_time + 3600  #Marge d'une heure pour éviter les problèmes de synchronisation
-    if login_timestamp > max_acceptable_timestamp or login_timestamp < 0:
-        error_message = 2
-        return error_message
+    if login_timestamp > current_time:
+        return error_codes["error_timestamp"]
 
     else:
-        error_message = 3
-        return error_message
+        return error_codes["normal_login"]
