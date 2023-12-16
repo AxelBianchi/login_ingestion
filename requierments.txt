@@ -1,4 +1,4 @@
 base64
 json
 google.cloud
-google-cloud-bigquery==2.34.0
+google-cloud-bigquery==2.30.1
