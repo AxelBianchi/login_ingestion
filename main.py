@@ -8,7 +8,7 @@ def ingest_message(event, context):
     message = base64.b64decode(event['data']).decode('utf-8') #Récup event sans le reste (event et context)
     print(message)
 
-    message_json = json.load(event['data'].decode('utf-8'))
+    message_json = json.load(event['data'])
     error_message = verif_msg(message_json)
     if error_message is None:
         print("fonction normale")
