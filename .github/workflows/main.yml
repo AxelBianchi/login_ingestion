@@ -1,8 +1,8 @@
 name: deploy cloud function CI
 
-on:
-  push:
-    branches: [ "main" ]
+on: #Pour specifier le declenchement en fct de l'endroit (on declenche sur push on branch...)
+  push: #event
+    branches: [ "main","login_ingestion" ] #on wich branches
 
 jobs:
   job_id:
