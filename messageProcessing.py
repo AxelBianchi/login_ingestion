@@ -23,3 +23,10 @@ def verif_msg(message_json):
 
     else:
         return error_codes["normal_login"]
+
+
+def get_error_reason(error_code):
+    for reason, code in error_codes.items():
+        if code == error_code:
+            return reason
+    return "error not found"

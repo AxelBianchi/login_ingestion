@@ -1,7 +1,7 @@
 import base64
 import json
-from messageProcessing import verif_msg, error_codes
-from tables_sender import message_to_login
+from messageProcessing import verif_msg,get_error_reason
+from tables_sender import message_to_login, message_to_login_error
 
 def ingest_message(event, context):
     message = base64.b64decode(event['data']) #Récup event sans le reste (event et context)
@@ -12,3 +12,9 @@ def ingest_message(event, context):
 
     if error_code == 0:
         message_to_login(message_json)
+
+    else:
+        message_reason = get_error_reason(error_code)
+        message_to_login_error(error_code,message_reason)
+
+
