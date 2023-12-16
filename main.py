@@ -14,5 +14,5 @@ def ingest_message(event, context):
         print("fonction normale")
         message_to_login(message_json) #Ecrire dans la table normale
     if error_message is not None:
-        print("non")
+        print("non  ")
         message_to_login_error(message_json)
