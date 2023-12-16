@@ -15,7 +15,6 @@ def ingest_message(event, context):
 
     message_json = json.loads(event['data'])
     error_code = verif_msg(message_json)
-    error_message = codes[error_code]
 
-    if error_code == 3:
+    if error_code == 0:
         message_to_login(message_json)
