@@ -29,4 +29,4 @@ def get_error_reason(error_code):
     for reason, code in error_codes.items():
         if code == error_code:
             return reason
-    return "error not found"
+    return 'error not found'
