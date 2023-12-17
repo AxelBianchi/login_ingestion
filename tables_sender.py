@@ -23,15 +23,15 @@ def message_to_login_error(message_json_format,reason):
     client = bigquery.Client()
     table_id = "ethereal-casing-404517.raw_dataset.login"
 
-    # Convertir le message JSON en une chaîne de caractères
-    message_str = json.dumps(message_json_format)
-
-    # Ajout du champ "reason" à la fin du message JSON
-    message_dict = json.loads(message_str.replace("'", '"'))
-    message_dict["reason"] = reason
-
-    # Insertion des données dans BigQuery
-    rows_to_insert = [message_dict]
+    # Construction de l'objet d'insertion avec les champs spécifiés
+    rows_to_insert = [{
+        'client_id': message_json_format['client_id'],
+        'login_timestamp': message_json_format['login_timestamp'],
+        'device_type': message_json_format['device_type'],
+        'browser': message_json_format['browser'],
+        'os': message_json_format['os'],
+        'reason': reason
+    }]
 
     errors = client.insert_rows_json(table_id, rows_to_insert)
 
