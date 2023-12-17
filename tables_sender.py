@@ -1,4 +1,5 @@
 from google.cloud import bigquery
+import json
 
 def message_to_login(message_json_format):
     print("GOOD MESSAGE")
@@ -22,11 +23,15 @@ def message_to_login_error(message_json_format,reason):
     client = bigquery.Client()
     table_id = "ethereal-casing-404517.raw_dataset.login"
 
+    # Convertir le message JSON en une chaîne de caractères
+    message_str = json.dumps(message_json_format)
+
     # Ajout du champ "reason" à la fin du message JSON
-    message_json_format["reason"] = reason
+    message_dict = json.loads(message_str.replace("'", '"'))
+    message_dict["reason"] = reason
 
     # Insertion des données dans BigQuery
-    rows_to_insert = [message_json_format]
+    rows_to_insert = [message_dict]
 
     errors = client.insert_rows_json(table_id, rows_to_insert)
 
