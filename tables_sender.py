@@ -17,7 +17,7 @@ def message_to_login(message_json_format):
         print("Errors encountered:", errors)
 
 def message_to_login_error(message_json_format,reason):
-    print("BAD MESSAGE")
+    print("BAD MESSAGE ")
 
     client = bigquery.Client()
     table_id = "ethereal-casing-404517.raw_dataset.login_errors"
