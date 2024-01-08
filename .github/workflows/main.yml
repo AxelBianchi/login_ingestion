@@ -33,3 +33,4 @@ jobs:
         service_account_email: 'login-ingestion@ethereal-casing-404517.iam.gserviceaccount.com'
         event_trigger_type: 'google.pubsub.topic.publish'
         event_trigger_resource: 'projects/ethereal-casing-404517/topics/logins_datastream'  #TOPIC name
+        env_vars_file: 'env_vars_file.yml'

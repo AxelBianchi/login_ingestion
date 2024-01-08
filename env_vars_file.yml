@@ -1,0 +1,4 @@
+PROJECT_ID: 'ethereal-casing-404517'
+DATASET_NAME: 'raw_dataset'
+LOGIN_TABLE_NAME: 'login'
+LOGIN_ERROR_TABLE_NAME: 'login_errors'
