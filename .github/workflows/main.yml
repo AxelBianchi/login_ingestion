@@ -18,19 +18,19 @@ jobs:
     - id: 'auth'
       uses: 'google-github-actions/auth@v1'
       with:
-        workload_identity_provider: 'projects/661060504378/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-provider'
-        service_account: 'github-deploy-action@ethereal-casing-404517.iam.gserviceaccount.com'
+        workload_identity_provider: 'projects/740881189822/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-provider'
+        service_account: 'github-actions@client-activation-system-pfe.iam.gserviceaccount.com'
     
     - id: 'deploy'
       uses: 'google-github-actions/deploy-cloud-functions@v1'
       with:
-        project_id: 'ethereal-casing-404517'
+        project_id: 'client-activation-system-pfe'
         name: 'login_ingestion'
         runtime: 'python39'
         entry_point: 'ingest_message'
         memory_mb: 128
         region: 'europe-west1'
-        service_account_email: 'login-ingestion@ethereal-casing-404517.iam.gserviceaccount.com'
+        service_account_email: 'login-reader@client-activation-system-pfe.iam.gserviceaccount.com'
         event_trigger_type: 'google.pubsub.topic.publish'
-        event_trigger_resource: 'projects/ethereal-casing-404517/topics/logins_datastream'  #TOPIC name
+        event_trigger_resource: 'projects/client-activation-system-pfe/topics/gcf_login_ingestion'  #TOPIC name
         env_vars_file: 'env_vars_file.yml'
